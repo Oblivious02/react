@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
+import { redirect } from "react-router-dom";
 
 const FormInput = (props) => {
   const [focused, setFocused] = useState(false);
@@ -25,16 +27,18 @@ const FormInput = (props) => {
 };
 
 const Login = () => {
+  // const [error, setError] = useState("");
+  const [error2, setError2] = useState("");
+
   const [values, setValues] = useState({
     name: "",
     password: "",
-    
   });
 
   const inputs = [
     {
       id: 1,
-      name: "Name",
+      name: "name",
       type: "text",
       placeholder: "Your User Name ",
       errorMessage: "Please write your user name ...",
@@ -58,16 +62,32 @@ const Login = () => {
       placeholder: "Password",
       errorMessage: "Please write your password ...",
       label: "Your Password",
-      pattern: "^[0-4]{0,1}$",
       required: true,
     },
-    
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
-    setValues({ name: "",  password: "" });
+    setValues({ name: "", password: "" });
+
+    let userdata = {
+      username: values.name,
+      password: values.password,
+    };
+
+    axios
+      .post("https://dummyjson.com/auth/login", userdata)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("auth", res.data.token);
+        window.location.replace("/Dashboard");
+      })
+      .catch((err) => {
+        console.log(err.response.data.message);
+        setError2(err.response.data.message);
+      });
+
     console.log("submit done ...");
   };
 
@@ -88,6 +108,7 @@ const Login = () => {
         ))}
         <button>Submit</button>
       </form>
+      <h2>{error2}</h2>
     </div>
   );
 };
