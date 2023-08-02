@@ -1,13 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import Form from "../componants/form";
-
-export default function home() {
+const Login = () => {
   return (
     <div>
-      
-      <Form/>
       
     </div>
   );
 }
+
+export default Login;
