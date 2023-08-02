@@ -108,7 +108,10 @@ const Login = () => {
         ))}
         <button>Submit</button>
       </form>
+      <div className="errorMass">
       <h2>{error2}</h2>
+      </div>
+      
     </div>
   );
 };
