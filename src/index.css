@@ -11,3 +11,105 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e6fffa;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  
+}
+
+form{
+    background-color: #065F46;
+    padding: 0px 60px;
+    border-radius: 15px;
+    width: 30%;
+    margin: 150px 500px;
+}
+
+h1{
+    color: rgb(251, 251, 251);
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+button{
+    width: 40%;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(49, 167, 62);
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+    margin-top: 35px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+}
+
+
+/**********************/
+
+.formInput{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+input{
+  padding: 15px;
+  margin: 10px 0px;
+  border-radius: 10px;
+  border: 1px solid rgb(35, 14, 98);
+}
+
+
+label{
+  font-size: 20px;
+  color: rgb(233, 233, 233);
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+span{
+  font-size: 15px;
+  padding: 3px;
+  color: rgb(218, 68, 68);
+  display: none;
+}
+
+input:invalid[focused="true"]{
+  border: 1px solid rgb(21, 164, 71);
+}
+
+input:invalid[focused="true"] ~ span{
+  display: block;
+}
+
+.Dashboard{
+  
+  width: 100%;
+  
+}
+.Dashboard h1{
+  margin-top: 200px;
+  color: #065F46;
+  font-size: 70px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}

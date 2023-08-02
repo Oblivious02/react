@@ -13,7 +13,7 @@ import Dashboard from './pages/Dashboard'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/Dashboard",
     element: <Dashboard/>,
     errorElement: <h1>Not Found.....</h1>
   },

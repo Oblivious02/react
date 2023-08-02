@@ -3,9 +3,9 @@ import React from "react";
 
 export default function Dashboard() {
   return (
-    <div>
+    <div className="Dashboard">
       
-      <h1>Welcome to Dashboard</h1>
+      <h1 >Welcome to Dashboard .... </h1>
       
     </div>
   );
