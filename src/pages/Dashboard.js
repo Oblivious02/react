@@ -1,26 +1,41 @@
-import React, { useEffect } from "react";
-import { redirect } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Dashboard() {
   const handleClick = () => {
     localStorage.removeItem("auth");
-    window.location.replace("/Login");
+    setAuth(false);
+    window.location.replace("/");
   };
 
-  useEffect(() => {
-    if (!localStorage.getItem("auth")) {
-      window.location.replace("/Login");
-    }
-    // redirect("/Login");
+  const [auth, setAuth] = useState(false);
 
-    // console.log("hi");
-    // console.log(localStorage.getItem("auth"));
+  useEffect(() => {
+    const key = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("auth")}`,
+      },
+    };
+    axios
+      .get("https://dummyjson.com/auth/users", key)
+      .then((res) => {
+        console.log(res.status);
+        setAuth(true);
+      })
+      .catch((err) => {
+        window.location.replace("/");
+        console.log(err.response.status);
+      });
   }, []);
 
   return (
-    <div className="Dashboard">
-      <h1>Welcome to Dashboard .... </h1>
-      <button onClick={handleClick}>Logout</button>
+    <div className="App">
+      {auth && (
+        <div className="Dashboard">
+          <h1>Welcome to Dashboard .... </h1>
+          <button onClick={handleClick}>Logout</button>
+        </div>
+      )}
     </div>
   );
 }

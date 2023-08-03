@@ -46,15 +46,6 @@ const Login = () => {
       pattern: "^[A-Za-z0-9]{0,100}$",
       required: true,
     },
-    // {
-    //   id: 2,
-    //   name: "email",
-    //   type: "email",
-    //   placeholder: "Email",
-    //   errorMessage: "Your email address not valid !",
-    //   label: "Email",
-    //   required: true,
-    // },
     {
       id: 2,
       name: "password",
@@ -109,9 +100,8 @@ const Login = () => {
         <button>Submit</button>
       </form>
       <div className="errorMass">
-      <h2>{error2}</h2>
+        <h2>{error2}</h2>
       </div>
-      
     </div>
   );
 };
